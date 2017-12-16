@@ -1,0 +1,36 @@
+<div style="padding: 0px 20px 20px 20px;border: 1px solid #000;">
+<h1>Sample Grid</h1>
+<div style="width: 1000px;height: 20px;">
+  <div style="float: left;">
+<button style="background: #00ff55" (click)="addColumn(titleInput.value)">Add Column</button>
+<input  type="text" placeholder="type column header"  #titleInput>
+  </div>
+<label style="float: left;width:100px;background: white;color:white">p</label>
+<div  style="float: left;">
+<button style="float: left;background: rgba(255, 0, 64, 0.404); " (click)="deleteColumn()">Remove Column</button>
+<div style="float: left;">
+      <select  (change)="onSelect($event)">
+          <option *ngFor="let x of columnDefs" [value]="x.headerName">{{x.headerName}}</option>
+      </select>
+      </div>
+ 
+ </div>   
+</div>
+<br>
+<ag-grid-angular style="width: 1000px; height: 115px;"
+                 class="ag-fresh"
+
+                 [enableColResize]="true"
+                 [enableSorting]="false"
+                 [enableFilter]="false"
+                 [singleClickEdit]="true"
+                 
+             
+
+                 [rowData]="rowData"
+                 [columnDefs]="columnDefs"
+                 [gridOptions]="gridOptions"
+                 (gridReady)="onGridReady($event)">
+                 
+</ag-grid-angular>
+</div>
